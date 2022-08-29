@@ -1,0 +1,14 @@
+---
+- name: update db servers
+  hosts: ansible.localdomain
+  remote_user: ansible
+
+  tasks:
+  - name: ensure postgresql is at the latest version
+    yum:
+      name: postgresql
+      state: latest
+  - name: ensure that postgresql is started
+    service:
+      name: postgresql
+      state: started
