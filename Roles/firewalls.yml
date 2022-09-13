@@ -1,0 +1,14 @@
+---
+- name: install pfsense
+  hosts: ansible.localdomain
+  remote_user: ansible
+
+  tasks:
+  - name: download pfsense 
+    yum:
+      name: pfsense 
+      state: latest
+  - name: ensure that postgresql is started
+    service:
+      name: postgresql
+      state: started
