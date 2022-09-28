@@ -1,0 +1,32 @@
+---
+
+- hosts: ansible.localdomain
+  tasks:
+  - name: Create multiple files
+    file: 
+      folder_path: "~/directories/production_stage/production/hosts"
+      state: touch
+    with_items:
+    - hosts.yml
+    - group1.yml
+    - group2.yml
+    - hostname1.txt
+    - hostname2.yml
+    - hosts.yml
+    - group1.yml
+    - group2.yml
+    
+- name: directories sample
+  hosts: ansible.localdomain
+  remote_user: ansible
+  become: true
+  vars:
+    mydir: "~/directories"
+  tasks:
+    - name: Creating directories
+      ansible.builtin.file:
+        path: /inventories/production_stage/production/hosts/groups_vars
+        state: directory
+        owner: ansible
+        group: ansible
+        mode: '700'
