@@ -10,7 +10,6 @@
     - hosts.yml
     - group1.yml
     - group2.yml
-    - hostname1.txt
     - hostname2.yml
     - hosts.yml
     - group1.yml
